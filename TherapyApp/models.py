@@ -9,10 +9,10 @@ class Profesional(models.Model):
     degree = models.CharField(max_length = 40)
     # disponibilidad = models.CharField(max_length = 40)
     modality = models.CharField(max_length = 40)
-    fee = models.IntegerField(max_length = 40)
-    score = models.IntegerField(max_length = 40)
-    id = models.IntegerField(max_length = 8, primary_key=True) # DNI
-    cuil = models.IntegerField(max_length = 11)
+    fee = models.IntegerField()
+    score = models.IntegerField()
+    id = models.IntegerField(primary_key=True) # DNI: deberia tener un limite de 8 caracteres
+    cuil = models.IntegerField() #el limite es 11 caracteres
     is_banned = models.BooleanField()
 
 class Patient(models.Model):
@@ -23,8 +23,8 @@ class Patient(models.Model):
     budget = models.CharField(max_length = 40)
     motive = models.CharField(max_length = 1500)
     score = models.CharField(max_length = 40)
-    id = models.IntegerField(max_length = 8, primary_key=True) # DNI
-    cuil = models.IntegerField(max_length = 11)
+    id = models.IntegerField(primary_key=True) # DNI
+    cuil = models.IntegerField()
     is_banned = models.BooleanField()
 
 # class Meeting(models.Model): Va a servir para guardar los datos de cada reunión que se genere entre paciente y profesional
