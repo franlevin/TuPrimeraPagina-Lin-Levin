@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'TherapyConnect.urls'
+ROOT_URLCONF = 'TherapyConnect.urls' 
 
 TEMPLATES = [
     {
