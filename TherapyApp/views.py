@@ -13,3 +13,7 @@ def create_user(request):
 def professional_search(request):
     
     return render(request, r'TherapyApp\professional_search.html')
+
+def marulina(request):
+    
+    return render(request, r'TherapyApp\index.html')
