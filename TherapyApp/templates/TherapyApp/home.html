@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Inicio
-</body>
-</html>
+{% extends "SharedTemplates/index.html" %}
+{% load static%}
+
+{% block page_title %}
+Therapy Connect
+{% endblock page_title %}
+
+{% block masthead_title %}
+<img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
+<h1 class="masthead-heading text-uppercase mb-0">Bienvenidos a Therapy Connect</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+<p>Buscá a tu profesional hoy</p>
+{% endblock masthead_content %}

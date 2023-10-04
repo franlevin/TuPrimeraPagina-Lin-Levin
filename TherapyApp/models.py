@@ -10,10 +10,13 @@ class Profesional(models.Model):
     # disponibilidad = models.CharField(max_length = 40)
     modality = models.CharField(max_length = 40)
     fee = models.IntegerField()
-    score = models.IntegerField()
-    id = models.IntegerField(primary_key=True) # DNI: deberia tener un limite de 8 caracteres
-    cuil = models.IntegerField() #el limite es 11 caracteres
-    is_banned = models.BooleanField()
+    #score = models.IntegerField()
+    #id = models.IntegerField(primary_key=True) # DNI: deberia tener un limite de 8 caracteres
+    #cuil = models.IntegerField() #el limite es 11 caracteres
+    #is_banned = models.BooleanField()
+    
+    def __str__(self):
+        return f"{self.name} {self.surname} ({self.modality})"
 
 class Patient(models.Model):
     name = models.CharField(max_length = 40)

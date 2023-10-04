@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Esto es para crear usuarios
-</body>
-</html>
+{% extends "SharedTemplates/index.html" %}
+
+{% block page_title %}
+Crear Usuario
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Crear nuevo usuario</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+<form action="" method="POST"> 
+    {% csrf_token %} 
+    <table>
+    {{user_form}}
+    </table>
+    <input type="submit" value="Crear" />
+</form>
+{% endblock masthead_content %}
