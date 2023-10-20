@@ -1,0 +1,26 @@
+
+{% extends "SharedTemplates/index.html" %}
+{% block masthead_content %}
+
+<form action="">
+<table> 
+    {{form}} 
+    </table>
+    <input type="submit" value="Buscar" />
+</form>
+
+{% if therapy_request_list %}
+<ul>
+    {% for request in therapy_request_list %}
+    <li>
+        <a style="color: white;" href = {% url "detail-therapy-request" request.id %}>{{request}}</a> 
+        || <a style="color: white;" href = {% url "update-therapy-request" request.id %}>Editar</a> 
+        || <a style="color: white;" href={% url "delete-therapy-request" request.id %}>Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se han encontrado solicitudes.</p>
+{% endif %}
+
+{% endblock masthead_content %}

@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.template import Template
 from TherapyApp.forms import UserCreateForm, ProfessionalSearchForm
-from TherapyApp.models import Profesional, Patient
+from TherapyApp.models import Profesional, Patient, TherapyRequest
+
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
 
 # Create your views here.
-def home(request):
-       
+def home(request):  
     return render(request, r'TherapyApp\home.html')
 
 def create_user(request):
@@ -36,6 +41,31 @@ def professional_search(request):
     search_form = ProfessionalSearchForm()
     return render(request, r'TherapyApp\professional_search.html', {"search_form": search_form, "professionals_found" : professionals_found})
 
-def marulina(request):
+def about(request):
+    return render(request, r'TherapyApp\about.html')
+
+class TherapyRequestCreateView(CreateView):
+    model = TherapyRequest
+    template_name = "TherapyApp/create_therapy_request.html"
+    fields = ['title', 'modality_required', 'username', 'request_description', 'budget', 'age']
+    success_url = reverse_lazy('list-therapy-request')
+
+class TherapyRequestDeleteView(DeleteView):
+    model = TherapyRequest
+    template_name = "TherapyApp/delete_therapy_request.html"
+    success_url = reverse_lazy('list-therapy-request')
     
-    return render(request, r'SharedTemplates\index.html')
+class TherapyRequestDetailView(DetailView):
+    model = TherapyRequest
+    template_name = "TherapyApp/detail_therapy_request.html"
+    
+class TherapyRequestListView(ListView):
+    model = TherapyRequest
+    context_object_name = 'therapy_request_list'
+    template_name = "TherapyApp/list_therapy_request.html"
+    
+class TherapyRequestUpdateView(UpdateView):
+    model = TherapyRequest
+    template_name = "TherapyApp/update_therapy_request.html"
+    fields = ['title', 'modality_required', 'username', 'request_description', 'budget', 'age']
+    success_url = reverse_lazy('list-therapy-request')

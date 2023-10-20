@@ -1,0 +1,19 @@
+{% extends "SharedTemplates/index.html" %}
+
+{% block page_title %}
+Therapy Connect - Editá tu solicitud
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Editá tu solicitud de ayuda</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+<form action= {% url "update-therapy-request" therapyrequest.id %} method="POST"> 
+    {% csrf_token %} 
+    <table>
+    {{form}}
+    </table>
+    <input type="submit" value="Editar" />
+</form> 
+{% endblock masthead_content %}
