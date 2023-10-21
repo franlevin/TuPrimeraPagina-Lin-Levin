@@ -1,8 +1,18 @@
-
 {% extends "SharedTemplates/index.html" %}
+{% load static %}
+
+{% block page_title %}
+Therapy Connect - Solicitudes de Ayuda
+{% endblock page_title %}
+
+{% block masthead_title %}
+<img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
+<h1 class="masthead-heading text-uppercase mb-0">Solicitudes de Ayuda</h1>
+{% endblock masthead_title %}
+
 {% block masthead_content %}
 
-<form action="">
+<form action="{% url 'list-therapy-request' %}">
 <table> 
     {{form}} 
     </table>

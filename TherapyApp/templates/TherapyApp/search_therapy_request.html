@@ -1,0 +1,27 @@
+{% extends "SharedTemplates/index.html" %}
+
+{% block page_title %}
+Therapy Connect - Búsqueda de Pacientes
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Buscá a qué pacientes querés ayudar!</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+<form action="">
+    {{search_form.modality}}
+    <input type="submit" value="Buscar" />
+</form>
+
+{% if therapy_request_found %}
+<ul>
+    {% for request in therapy_request_found %}
+        <li>{{request}}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron solicitudes con esa modalidad</p>
+{% endif %}
+
+{% endblock masthead_content %}

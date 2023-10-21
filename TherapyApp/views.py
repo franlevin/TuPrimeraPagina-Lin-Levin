@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.template import Template
-from TherapyApp.forms import UserCreateForm, ProfessionalSearchForm
+from TherapyApp.forms import UserCreateForm, ProfessionalSearchForm, TherapyRequestForm
 from TherapyApp.models import Profesional, Patient, TherapyRequest
 
 from django.views.generic.detail import DetailView
@@ -69,3 +69,16 @@ class TherapyRequestUpdateView(UpdateView):
     template_name = "TherapyApp/update_therapy_request.html"
     fields = ['title', 'modality_required', 'username', 'request_description', 'budget', 'age']
     success_url = reverse_lazy('list-therapy-request')
+
+def search_therapy_request(request):
+    search_form = TherapyRequestForm(request.GET)
+    
+    if search_form.is_valid():
+        modality_to_search = search_form.cleaned_data.get("modality")
+        therapy_request_found = TherapyRequest.objects.filter(modality_required__icontains = modality_to_search)
+    else:       
+        therapy_request_found = TherapyRequest.objects.all()
+    
+    search_form = TherapyRequestForm()
+    return render(request, r'TherapyApp\search_therapy_request.html', 
+                  {"search_form": search_form, "therapy_request_found" : therapy_request_found})
