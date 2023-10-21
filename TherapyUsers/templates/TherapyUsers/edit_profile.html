@@ -1,0 +1,23 @@
+{% extends "SharedTemplates/index.html" %}
+
+{% block page_title %}
+Realice cambios en su perfil
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Editar perfil</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+
+<form action={% url "edit_profile" %} method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <input type="submit" value="Editar" />
+    <a href={% url "change_password" %}>Cambiar contraseña</a>
+</form>
+
+
+{% endblock masthead_content %}
