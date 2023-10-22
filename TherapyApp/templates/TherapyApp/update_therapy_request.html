@@ -1,7 +1,7 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Therapy Connect - Editá tu solicitud
+Editá tu solicitud
 {% endblock page_title %}
 
 {% block masthead_title %}
@@ -9,11 +9,13 @@ Therapy Connect - Editá tu solicitud
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<form action= {% url "update-therapy-request" therapyrequest.id %} method="POST"> 
-    {% csrf_token %} 
-    <table>
-    {{form}}
-    </table>
-    <input type="submit" value="Editar" />
-</form> 
+<div class="request-detail">
+    <form action= {% url "update-therapy-request" therapyrequest.id %} method="POST"> 
+        {% csrf_token %} 
+        <table>
+        {{form}}
+        </table>
+        <input type="submit" value="Editar" />
+    </form>
+</div>
 {% endblock masthead_content %}

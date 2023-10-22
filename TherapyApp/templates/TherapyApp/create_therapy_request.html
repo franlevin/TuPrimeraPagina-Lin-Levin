@@ -1,7 +1,7 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Therapy Connect - Solicitá ayuda
+Solicitá ayuda
 {% endblock page_title %}
 
 {% block masthead_title %}
@@ -9,11 +9,14 @@ Therapy Connect - Solicitá ayuda
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<form action= {% url "create-therapy-request" %} method="POST"> 
-    {% csrf_token %} 
-    <table>
-    {{form}}
-    </table>
-    <input type="submit" value="Crear" />
-</form> 
+<div class="request-detail">
+    <form action= {% url "create-therapy-request" %} method="POST"> 
+        {% csrf_token %} 
+        <table>
+        {{form}}
+        </table>
+        <br>
+        <input type="submit" value="Crear" />
+    </form>
+</div>
 {% endblock masthead_content %}

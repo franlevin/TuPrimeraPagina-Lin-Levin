@@ -2,26 +2,52 @@
 {% load static%}
 
 {% block page_title %}
-Therapy Connect - About Us
+About Us
 {% endblock page_title %}
 
 {% block masthead_title %}
-<img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
-<h1 class="masthead-heading text-uppercase mb-0">About</h1>
+<h1 class="masthead-heading text-uppercase mb-0">About Us</h1>
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<p>Conocenos un poco</p>
-<p>
-¿Buscas apoyo emocional o deseas brindarlo? TerapistaWeb te proporciona 
-las herramientas que necesitas para encontrar el equilibrio emocional que 
-estás buscando. Descubre un espacio de conexión confiable y gratuito para 
-terapeutas y pacientes.
-</p>
-<p>
-Encuentra terapeutas o pacientes en TerapistaWeb de manera rápida y 
-sencilla. Nuestra plataforma gratuita te ofrece la oportunidad de 
-publicar tus solicitudes o buscar profesionales de la salud mental 
-en un entorno amigable y seguro.
-</p>
+<div class="row">
+    <!-- Descripción Maria Eugenia Lin -->
+    <div class="col-lg-4 mx-auto">
+        <p class="lead text-justify">
+            <div class="request-detail">
+                <img class="img-thumbnail" src= {% static "assets/img/portfolio/maria.jfif" %} alt="..." /><br>
+                <p style="font-size: 25px">
+                    Maria Eugenia Lin (25 años)
+                </p><br>
+                    <p style="font-size: 18px">
+                    Siempre fui muy empática y sensible desde chica. 
+                    Hoy en día, la salud mental me parece un tema muy 
+                    relevante y es por eso que quiero facilitar el espacio 
+                    para que los demás lo puedan hacer.
+                </p>
+            </div>
+        </p>
+    </div>
+    <!-- Fin decripción Maria Eugenia Lin -->
+
+    <!-- Descripción Francisco Levin -->
+    <div class="col-lg-4 mx-auto">
+        <p class="lead text-justify">
+            <div class="request-detail">
+                <img class="img-thumbnail" src= {% static "assets/img/portfolio/francisco.jfif" %} alt="..."/><br>
+                <p style="font-size: 25px">
+                    Francisco Levin (26 años)
+                </p><br>
+                <p style="font-size: 18px">
+                    Aprender sobre las emociones y cómo cuidar nuestra mente 
+                    es esencial para vivir una vida plena. La empatía y la 
+                    comprensión son herramientas poderosas que nos permiten 
+                    conectarnos con los demás en un nivel más profundo.
+                </p>
+            </div>
+        </p>
+    </div>
+    <!-- Fin Descripción Francisco Levin -->
+
 {% endblock masthead_content %}
+

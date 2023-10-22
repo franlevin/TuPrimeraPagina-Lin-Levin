@@ -1,7 +1,7 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Therapy Connect - Eliminar Solicitud
+Eliminar Solicitud
 {% endblock page_title %}
 
 {% block masthead_title %}
@@ -9,10 +9,12 @@ Therapy Connect - Eliminar Solicitud
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<form action={% url "delete-therapy-request" therapyrequest.id %} method="POST"> 
-    {% csrf_token %} 
-    <p>Realmente quiere eliminar la {{therapyrequest}}?</p>
-    <input type="submit" value="Confirmar" />
-</form> 
+<div class="request-detail">
+    <form action={% url "delete-therapy-request" therapyrequest.id %} method="POST"> 
+        {% csrf_token %} 
+        <p>Realmente quiere eliminar la {{therapyrequest}}?</p>
+        <input type="submit" value="Confirmar" />
+    </form>
+</div>
 
 {% endblock masthead_content %}

@@ -2,14 +2,37 @@
 {% load static%}
 
 {% block page_title %}
-Therapy Connect - Inicio
+Inicio
 {% endblock page_title %}
 
 {% block masthead_title %}
-<img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
-<h1 class="masthead-heading text-uppercase mb-0">Bienvenidos a Therapy Connect</h1>
+<img class="masthead-avatar mb-5" src={% static "assets/img/portfolio/inicio5.jpg" %} alt="..." />
+<h1 class="masthead-heading text-uppercase mb-0">Bienvenidos a <br>Therapy Connect</h1>
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<p>Buscá a tu profesional hoy</p>
+
+<div class="row">
+    <div class="col-lg-4 ms-auto"><p class="lead">
+        <div class="request-detail">
+            <p style="font-size: 18px;text-align: justify";>
+                ¿Buscás apoyo emocional o deseás brindarlo? Therapy Connect te da
+                las herramientas que necesitas para encontrar el equilibrio emocional que 
+                estás buscando. Descubrí un espacio de conexión confiable y gratuito.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-lg-4 me-auto"><p class="lead">
+        <div class="request-detail">
+            <p style="font-size: 18px;text-align: justify";>
+                Encontrá terapeutas o pacientes en Therapy Connect de manera rápida y 
+                sencilla. Nuestra plataforma te ofrece la oportunidad de publicar 
+                tus solicitudes o buscar profesionales de la salud mental 
+                en un entorno amigable y seguro.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock masthead_content %}

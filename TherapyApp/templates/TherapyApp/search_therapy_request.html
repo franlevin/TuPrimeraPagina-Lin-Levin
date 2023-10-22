@@ -1,25 +1,34 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Therapy Connect - Búsqueda de Pacientes
+Búsqueda de Pacientes
 {% endblock page_title %}
 
 {% block masthead_title %}
-<h1 class="masthead-heading text-uppercase mb-0">Buscá a qué pacientes querés ayudar!</h1>
+<h1 class="masthead-heading text-uppercase mb-0">Buscá pacientes</h1>
 {% endblock masthead_title %}
 
 {% block masthead_content %}
 <form action="">
-    {{search_form.modality}}
-    <input type="submit" value="Buscar" />
+    <div style="display: inline-block;">
+        <label for="modality">Seleccioná la modalidad:</label>
+        {{search_form.modality}}
+    </div>
+    <input type="submit" value="Buscar" style="display: inline-block;" />
 </form>
+<br>
 
-{% if therapy_request_found %}
-<ul>
-    {% for request in therapy_request_found %}
-        <li>{{request}}</li>
-    {% endfor %}
-</ul>
+{% if therapy_request_found%}
+<div class="request-detail">
+    <p><strong>Solicitudes Disponibles</strong></p>
+    <ul>
+        {% for request in therapy_request_found %}
+            <li>
+                <a style="color: white;" href = {% url "detail-therapy-request" request.id %}>{{request}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% else %}
 <p>No se encontraron solicitudes con esa modalidad</p>
 {% endif %}

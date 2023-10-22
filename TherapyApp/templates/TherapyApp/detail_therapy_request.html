@@ -1,7 +1,7 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Therapy Connect - Detalle de solicitud
+Detalle de solicitud
 {% endblock page_title %}
 
 {% block masthead_title %}
@@ -9,12 +9,22 @@ Therapy Connect - Detalle de solicitud
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-<ul>
-    <li> Titulo: {{therapyrequest.title}} </li>
-    <li> Corriente requerida: {{therapyrequest.modality_required}} </li>
-    <li> Usuario: {{therapyrequest.username}} </li>
-    <li> Descripción de solicitud: {{therapyrequest.request_description}} </li>
-    <li> Presupuesto: {{therapyrequest.budget}} </li>
-    <li> Edad: {{therapyrequest.age}} </li>
-</ul>
+<div class="request-detail">
+       
+    <p style="font-size: 18px"; align="justify";>
+        Titulo: <em>{{therapyrequest.title}}</em> 
+        - por usuario: <em>{{therapyrequest.username}}</em>
+    </p>
+
+    <div class="request-detail-inner-title">
+        <p>"{{therapyrequest.request_description}}"</p>
+    </div>
+
+    <p style="font-size: 15px">
+        <br>
+        Busca ser atendido por {{therapyrequest.get_modality_required_display}}<br>
+        Presupuesto: {{therapyrequest.budget}}<br>
+        Edad: {{therapyrequest.age}}<br>
+    </p>
+</div>
 {% endblock masthead_content %}

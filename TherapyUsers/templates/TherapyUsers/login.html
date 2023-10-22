@@ -9,13 +9,15 @@ Ingresá a tu cuenta
 {% endblock masthead_title %}
 
 {% block masthead_content %}
-
-<form action={% url "login" %} method="post">
-    {% csrf_token %}
-    <table>
-        {{formulario}}
-    </table>
-    <input type="submit" value="Iniciar sesion" />
-</form>
+<div class="request-detail">
+    <form action={% url "login" %} method="post">
+        {% csrf_token %}
+        <table>
+            {{formulario}}
+        </table>
+        <br>
+        <input type="submit" value="Iniciar sesion" />
+    </form>
+</div>
 
 {% endblock masthead_content %}

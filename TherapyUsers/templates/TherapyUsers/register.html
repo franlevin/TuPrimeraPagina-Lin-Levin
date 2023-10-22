@@ -10,12 +10,14 @@ Regístrese para crear solicitudes de terapia
 
 {% block masthead_content %}
 
-<form action={% url "register" %} method="post">
-    {% csrf_token %}
-    <table>
-        {{formulario}}
-    </table>
-    <input type="submit" value="Registrarse" />
-</form>
-
+<div class="request-detail">
+    <form action={% url "register" %} method="post">
+        {% csrf_token %}
+        <table>
+            {{formulario}}
+        </table>
+        <br>
+        <input type="submit" value="Registrarse" />
+    </form>
+</div>
 {% endblock masthead_content %}

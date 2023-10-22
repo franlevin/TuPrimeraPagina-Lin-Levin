@@ -2,33 +2,30 @@
 {% load static %}
 
 {% block page_title %}
-Therapy Connect - Solicitudes de Ayuda
+Solicitudes de Ayuda
 {% endblock page_title %}
 
 {% block masthead_title %}
-<img class="masthead-avatar mb-5" src={% static "assets/img/avataaars.svg" %} alt="..." />
 <h1 class="masthead-heading text-uppercase mb-0">Solicitudes de Ayuda</h1>
 {% endblock masthead_title %}
 
 {% block masthead_content %}
 
-<form action="{% url 'list-therapy-request' %}">
-<table> 
-    {{form}} 
-    </table>
-    <input type="submit" value="Buscar" />
-</form>
+<button onclick="window.location.href='{% url 'create-therapy-request' %}'">Creá tu Solicitud</button><br>
 
 {% if therapy_request_list %}
-<ul>
-    {% for request in therapy_request_list %}
-    <li>
-        <a style="color: white;" href = {% url "detail-therapy-request" request.id %}>{{request}}</a> 
-        || <a style="color: white;" href = {% url "update-therapy-request" request.id %}>Editar</a> 
-        || <a style="color: white;" href={% url "delete-therapy-request" request.id %}>Eliminar</a>
-    </li>
-    {% endfor %}
-</ul>
+<div class="request-detail">
+    <p><strong>Solicitudes Disponibles</strong></p>
+    <ul>
+        {% for request in therapy_request_list %}
+        <li>
+            <a style="color: white;" href = {% url "detail-therapy-request" request.id %}>{{request}}</a> 
+            || <a style="color: white;" href = {% url "update-therapy-request" request.id %}>Editar</a> 
+            || <a style="color: white;" href={% url "delete-therapy-request" request.id %}>Eliminar</a>
+        </li>
+        {% endfor %}
+    </ul>
+<div>
 {% else %}
 <p>No se han encontrado solicitudes.</p>
 {% endif %}

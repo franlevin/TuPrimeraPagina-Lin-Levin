@@ -49,6 +49,20 @@ class TherapyRequestCreateView(CreateView):
     template_name = "TherapyApp/create_therapy_request.html"
     fields = ['title', 'modality_required', 'username', 'request_description', 'budget', 'age']
     success_url = reverse_lazy('list-therapy-request')
+    labels = {
+            'title': 'Titulo',
+            'modality_required': "Modalidad requerida",
+            'username': "Nombre de usuario",
+            'request_description': 'Descripción de la Solicitud',
+            'budget': 'Presupuesto',
+            'age': 'Edad'          
+    }
+    
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        for field, label in self.labels.items():
+            form.fields[field].label = label
+        return form
 
 class TherapyRequestDeleteView(DeleteView):
     model = TherapyRequest

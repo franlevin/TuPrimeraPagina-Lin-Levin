@@ -18,4 +18,4 @@ class TherapyRequestForm(forms.Form):
         choices = modality_choices,
         required=False,
         widget = forms.Select(attrs={'class':'form-control'})
-    )    
+    )
