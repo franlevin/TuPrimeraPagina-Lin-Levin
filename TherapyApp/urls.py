@@ -3,8 +3,6 @@ from TherapyApp import views
 
 urlpatterns = [
     path('', views.home, name = 'home'),
-    path('create-user/', views.create_user),
-    path('professional-search/', views.professional_search),
     path('about/', views.about, name = 'about'),
     path('therapy-request/', views.TherapyRequestListView.as_view(), name='list-therapy-request'),  
     path('therapy-request/create/', views.TherapyRequestCreateView.as_view(), name='create-therapy-request'),  

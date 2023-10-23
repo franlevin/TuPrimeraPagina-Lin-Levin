@@ -1,7 +1,7 @@
 {% extends "SharedTemplates/index.html" %}
 
 {% block page_title %}
-Regístrese para crear solicitudes de terapia
+Regístrese para utilizar la plataforma
 {% endblock page_title %}
 
 {% block masthead_title %}
@@ -20,4 +20,18 @@ Regístrese para crear solicitudes de terapia
         <input type="submit" value="Registrarse" />
     </form>
 </div>
+
+{% comment %} <div class="request-detail">
+    <form method="post">
+        {% csrf_token %}
+        <input type="radio" name="user_type" value="therapist"> Terapeuta
+        <input type="radio" name="user_type" value="patient"> Paciente
+        <table>
+            {{ formulario.as_table }}
+        </table>
+        <br>
+        <input type="submit" value="Registrarse" />
+    </form>
+</div> {% endcomment %}
+
 {% endblock masthead_content %}

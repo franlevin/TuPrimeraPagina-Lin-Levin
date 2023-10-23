@@ -1,12 +1,17 @@
 from django.urls import path
-from TherapyUsers.views import login, register, edit_profile, ChangePassword
+from TherapyUsers.views import login, edit_patient_profile, edit_therapist_profile, view_profile, register_menu, register, ChangePassword
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('login/', login, name='login'),
     path('register/', register, name='register'),
-    path('profile/edit/', edit_profile, name='edit_profile'),
+    path('register-menu/', register_menu, name='register_menu'),
+    path('profile/edit/patient', edit_patient_profile, name='edit_patient_profile'),
+    path('profile/edit/therapist', edit_therapist_profile, name='edit_therapist_profile'),
+    path('profile/', view_profile, name='view_profile'),
     path('profile/edit/psswrd/', ChangePassword.as_view(), name='change_password'),
     path('logout/', LogoutView.as_view(template_name='TherapyUsers/logout.html'), name='logout'),
 ] 

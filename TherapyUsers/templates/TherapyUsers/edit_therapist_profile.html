@@ -1,0 +1,27 @@
+{% extends "SharedTemplates/index.html" %}
+
+{% block page_title %}
+Realice cambios en su perfil
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Editar perfil</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+
+<div class="request-detail">
+<form action={% url "edit_therapist_profile" %} method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <br>
+    <input type="submit" value="Editar" />
+    <a style="color:white;" href={% url "change_password" %}>Cambiar contraseña</a>
+    <button onclick="window.location.href='{% url "change_password" %}'">Cambiar constraseña</button><br>
+</form>
+</div>
+
+
+{% endblock masthead_content %}
