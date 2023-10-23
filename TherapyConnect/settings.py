@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'TherapyApp',
     'TherapyUsers',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,11 @@ TEMPLATE_CONTEXT_PROCESSORS = 'django.core.context_processors.request'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/"  # Define the upload path
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'  # Define the URL to jQuery
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',  # You can customize the toolbar
+    },
+}
