@@ -6,7 +6,7 @@ Tu Perfil
 {% endblock page_title %}
 
 {% block masthead_title %}
-<h1 class="masthead-heading text-uppercase mb-0">Tu perfil</h1>
+<h1 class="masthead-heading text-uppercase mb-0">Tu perfil de paciente</h1>
 {% endblock masthead_title %}
 
 {% block masthead_content %}
@@ -23,6 +23,8 @@ Tu Perfil
     <p><strong>Email:</strong> {{ user_data.email }}</p>
     <p><strong>Nombre:</strong> {{ user_data.first_name }}</p>
     <p><strong>Apellido:</strong> {{ user_data.last_name }}</p>
+    <p><strong>Edad:</strong> {{ user_data.last_name }}</p>
+    <p><strong>Presupuesto:</strong> {{ user_data.last_name }}</p>
 
     {% if user_data.link %}
         <p><strong>Enlace:</strong> <a href="{{ user_data.link }}">{{ user_data.link }}</a></p>
@@ -30,6 +32,6 @@ Tu Perfil
 
 <div>
 
-<button onclick="window.location.href='{% url 'edit_profile' %}'">Editar datos</button><br>
+<button onclick="window.location.href='{% url 'edit_patient_profile' %}'">Editar datos</button><br>
 
 {% endblock masthead_content %}

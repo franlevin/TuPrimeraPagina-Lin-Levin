@@ -1,0 +1,40 @@
+{% extends "SharedTemplates/index.html" %}
+{% load static %}
+
+{% block page_title %}
+Tu Perfil
+{% endblock page_title %}
+
+{% block masthead_title %}
+<h1 class="masthead-heading text-uppercase mb-0">Tu perfil de terapeuta</h1>
+{% endblock masthead_title %}
+
+{% block masthead_content %}
+
+<div class="request-detail">
+
+    {% if user_data.avatar %}
+        <img class="img-thumbnail" height="200px" src="{{ user_data.avatar }}" alt="Avatar">
+        <br>
+    {% endif %}
+
+    <br>
+    <p><strong>Usuario:</strong> {{ user_data.username }}</p>
+    <p><strong>Email:</strong> {{ user_data.email }}</p>
+    <p><strong>Nombre:</strong> {{ user_data.first_name }}</p>
+    <p><strong>Apellido:</strong> {{ user_data.last_name }}</p>
+    <p><strong>DNI:</strong> {{ user_data.dni }}</p>
+    <p><strong>Especialidad:</strong> {{ user_data.specialty }}</p>
+    <p><strong>Título:</strong> {{ user_data.degree }}</p>
+    <p><strong>Corriente:</strong> {{ user_data.modality }}</p>
+    <p><strong>Honorario:</strong> {{ user_data.fee }}</p>
+
+    {% if user_data.link %}
+        <p><strong>Enlace:</strong> <a href="{{ user_data.link }}">{{ user_data.link }}</a></p>
+    {% endif %}
+
+<div>
+
+<button onclick="window.location.href='{% url 'edit_therapist_profile' %}'">Editar datos</button><br>
+
+{% endblock masthead_content %}

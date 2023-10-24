@@ -101,16 +101,36 @@ def edit_therapist_profile(request):
     return render(request, 'TherapyUsers/edit_therapist_profile.html', {'formulario': formulario})
 
 @login_required
-def view_profile(request):
+def view_patient_profile(request):
     user_data = {
         'username': request.user.username,
         'email': request.user.email,
         'first_name': request.user.first_name,
         'last_name': request.user.last_name,
+        'dni': request.user.infoextra.dni,
+        'age': request.user.infoextra.age,
+        'budget': request.user.infoextra.budget,
         'link': request.user.infoextra.link if hasattr(request.user, 'infoextra') else None,
         'avatar': request.user.infoextra.avatar.url if hasattr(request.user, 'infoextra') and request.user.infoextra.avatar else None,
     }
-    return render(request, 'TherapyUsers/view_profile.html', {'user_data': user_data})
+    return render(request, 'TherapyUsers/view_patient_profile.html', {'user_data': user_data})
+
+@login_required
+def view_therapist_profile(request):
+    user_data = {
+        'username': request.user.username,
+        'email': request.user.email,
+        'first_name': request.user.first_name,
+        'last_name': request.user.last_name,
+        'dni': request.user.infoextra.dni,
+        'specialty': request.user.infoextra.specialty,
+        'degree': request.user.infoextra.degree,
+        'modality': request.user.infoextra.modality,
+        'fee': request.user.infoextra.fee,
+        'link': request.user.infoextra.link if hasattr(request.user, 'infoextra') else None,
+        'avatar': request.user.infoextra.avatar.url if hasattr(request.user, 'infoextra') and request.user.infoextra.avatar else None,
+    }
+    return render(request, 'TherapyUsers/view_therapist_profile.html', {'user_data': user_data})
 
 class ChangePassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'TherapyUsers/change_password.html'
