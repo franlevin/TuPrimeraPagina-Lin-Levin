@@ -26,5 +26,7 @@ Detalle de solicitud
         Presupuesto: {{therapyrequest.budget}}<br>
         Edad: {{therapyrequest.age}}<br>
     </p>
+
+    <button onclick="window.location.href='{% url "list-therapy-request" %}'">Volver a solicitudes</button>
 </div>
 {% endblock masthead_content %}
