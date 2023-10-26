@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login as django_login
 from TherapyUsers.forms import MyRegisterForm, MyPatientEditProfileForm, MyTherapistEditProfileForm
 from django.contrib.auth.views import PasswordChangeView
@@ -7,7 +7,6 @@ from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from TherapyUsers.models import InfoExtra
-from django.contrib.auth.models import User
 
 def login(request):
     
@@ -65,7 +64,7 @@ def edit_patient_profile(request):
             info_extra.save()
 
             formulario.save()
-            return redirect('home')
+            return redirect('view_patient_profile')
     else:
         formulario = MyPatientEditProfileForm(initial={'link': info_extra.link, 'avatar': info_extra.avatar, 'dni': info_extra.dni,
                                                        'age': info_extra.age, 'budget': info_extra.budget}, instance=request.user)
@@ -94,7 +93,7 @@ def edit_therapist_profile(request):
             info_extra.save()
 
             formulario.save()
-            return redirect('home')
+            return redirect('view_therapist_profile')
     else:
         formulario = MyTherapistEditProfileForm(initial={'link': info_extra.link, 'avatar': info_extra.avatar, 'dni': info_extra.dni, 
                                                          'specialty': info_extra.specialty, 'degree': info_extra.degree, 'modality': info_extra.modality, 'fee': info_extra.fee}, instance=request.user)
@@ -134,4 +133,10 @@ def view_therapist_profile(request):
 
 class ChangePassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'TherapyUsers/change_password.html'
-    success_url = reverse_lazy('edit_profile')
+    
+    def get_success_url(self):
+        user_type = self.request.user.infoextra.user_type
+        if user_type == 'Therapist':
+            return reverse_lazy('view_therapist_profile')
+        elif user_type == 'Patient':
+            return reverse_lazy('view_patient_profile')

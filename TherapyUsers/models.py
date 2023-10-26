@@ -13,3 +13,6 @@ class InfoExtra(models.Model):
     fee = models.IntegerField(default=0)
     link = models.URLField(null=True)
     avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
+    
+    def __str__(self):
+        return f"Información de {self.user.username}"

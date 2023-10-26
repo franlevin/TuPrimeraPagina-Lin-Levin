@@ -2,8 +2,6 @@ from django.db import models
 from .choices import modality_choices
 from ckeditor.fields import RichTextField
 
-# class Meeting(models.Model): Va a servir para guardar los datos de cada reunión que se genere entre paciente y profesional
-
 class TherapyRequest(models.Model):
   
     title = models.CharField(max_length = 100)

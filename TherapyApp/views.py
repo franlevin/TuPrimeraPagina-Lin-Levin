@@ -7,8 +7,6 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-
-# Create your views here.
 def home(request):  
     return render(request, r'TherapyApp\home.html')
 
@@ -64,6 +62,9 @@ def search_therapy_request(request):
     else:       
         therapy_request_found = TherapyRequest.objects.all()
     
-    search_form = TherapyRequestForm()
+    search_form = TherapyRequestForm(request.GET)
     return render(request, r'TherapyApp\search_therapy_request.html', 
                   {"search_form": search_form, "therapy_request_found" : therapy_request_found})
+
+def modalities(request):
+    return render(request, r'TherapyApp\modalities.html')

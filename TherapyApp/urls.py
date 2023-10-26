@@ -9,5 +9,6 @@ urlpatterns = [
     path('therapy-request/<int:pk>/delete/', views.TherapyRequestDeleteView.as_view(), name='delete-therapy-request'),  
     path('therapy-request/<int:pk>/update/', views.TherapyRequestUpdateView.as_view(), name='update-therapy-request'),  
     path('therapy-request/<int:pk>/', views.TherapyRequestDetailView.as_view(), name='detail-therapy-request'), 
-    path('therapy-request/search/', views.search_therapy_request, name = 'search-therapy-request') 
+    path('therapy-request/search/', views.search_therapy_request, name = 'search-therapy-request'),
+    path('modalities/', views.modalities, name = 'modalities')
 ]

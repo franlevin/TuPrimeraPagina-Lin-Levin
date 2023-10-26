@@ -1,8 +1,6 @@
 from django.urls import path
 from TherapyUsers.views import login, edit_patient_profile, edit_therapist_profile, view_patient_profile, view_therapist_profile, register_menu, register, ChangePassword
 from django.contrib.auth.views import LogoutView
-from django.conf import settings
-from django.conf.urls.static import static
 
 
 urlpatterns = [

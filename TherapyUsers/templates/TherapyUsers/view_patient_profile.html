@@ -14,7 +14,7 @@ Tu Perfil
 <div class="request-detail">
 
     {% if user_data.avatar %}
-        <img class="img-thumbnail" height="200px" src="{{ user_data.avatar }}" alt="Avatar">
+        <img class="img-thumbnail" style=" height: 100px;" src="{{ user_data.avatar }}" alt="Avatar">
         <br>
     {% endif %}
 
@@ -23,8 +23,8 @@ Tu Perfil
     <p><strong>Email:</strong> {{ user_data.email }}</p>
     <p><strong>Nombre:</strong> {{ user_data.first_name }}</p>
     <p><strong>Apellido:</strong> {{ user_data.last_name }}</p>
-    <p><strong>Edad:</strong> {{ user_data.last_name }}</p>
-    <p><strong>Presupuesto:</strong> {{ user_data.last_name }}</p>
+    <p><strong>Edad:</strong> {{ user_data.age }}</p>
+    <p><strong>Presupuesto:</strong> {{ user_data.budget }}</p>
 
     {% if user_data.link %}
         <p><strong>Enlace:</strong> <a href="{{ user_data.link }}">{{ user_data.link }}</a></p>
